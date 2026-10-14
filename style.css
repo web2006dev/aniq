@@ -1,0 +1,185 @@
+/* ========================================================
+   ANIQ UNISEX BEAUTY SALON & TATTOOS — KPHB HYDERABAD
+   Modern Cyber Obsidian & Amber Gold Design System
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap');
+
+:root {
+  --obsidian: #09090C;
+  --obsidian-card: #121217;
+  --obsidian-card-hover: #181820;
+  --obsidian-border: #23232D;
+
+  --amber: #E5A93C;
+  --amber-light: #F6CE7D;
+  --amber-dark: #B97C16;
+  --amber-gradient: linear-gradient(135deg, #FDE09D 0%, #E5A93C 55%, #B97C16 100%);
+
+  --ink-blue: #2E5BFF;
+  --text-muted: #8E8E9E;
+
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--obsidian);
+}
+
+body {
+  background-color: var(--obsidian);
+  color: #ECECF2;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--amber);
+  color: #09090C;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090C;
+}
+::-webkit-scrollbar-thumb {
+  background: #252530;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--amber);
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.text-amber-gradient {
+  background: linear-gradient(135deg, #FDE09D 0%, #E5A93C 55%, #B97C16 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism & Cards */
+.glass-nav {
+  background: rgba(9, 9, 12, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(229, 169, 60, 0.18);
+}
+
+.card-obsidian {
+  background: rgba(18, 18, 23, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 169, 60, 0.18);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-obsidian:hover {
+  border-color: rgba(229, 169, 60, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 169, 60, 0.12);
+}
+
+/* Buttons */
+.btn-amber {
+  background: linear-gradient(135deg, #F5D38A 0%, #E5A93C 55%, #C2841E 100%);
+  color: #09090C;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(229, 169, 60, 0.3);
+}
+
+.btn-amber:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(229, 169, 60, 0.45);
+  filter: brightness(1.06);
+}
+
+.btn-outline-amber {
+  border: 1px solid rgba(229, 169, 60, 0.5);
+  color: var(--amber-light);
+  background: rgba(229, 169, 60, 0.05);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-amber:hover {
+  background: rgba(229, 169, 60, 0.16);
+  border-color: var(--amber);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Active Category Pill */
+.category-pill.active {
+  background: #E5A93C;
+  color: #09090C;
+  border-color: #E5A93C;
+  font-weight: 700;
+}
+
+/* Image Card Hover Zoom */
+.lookbook-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.lookbook-card img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lookbook-card:hover img {
+  transform: scale(1.06);
+}
+
+/* Modals (Strictly hidden by default to prevent overlays) */
+.modal-backdrop,
+.lightbox-modal {
+  display: none !important;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+}
+
+.modal-backdrop.open,
+.lightbox-modal.open {
+  display: flex !important;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.modal-box {
+  transform: scale(0.96) translateY(12px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.open .modal-box,
+.lightbox-modal.open .modal-box {
+  transform: scale(1) translateY(0);
+}
+
+/* Horizontal scrollbar hide */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
